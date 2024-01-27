@@ -1,0 +1,50 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@800&display=swap');
+  font-family: 'Lexend', sans-serif;
+</style>
+
+<html>
+<head>
+  <link href='nggstyle.css' rel='stylesheet'>
+</head>
+<body>
+  <body style="background-color:black;">
+  <header>BrunysIXL - Proxys</header>
+  <form onsubmit="goNowgg()">
+  </form>
+  <div>
+    <h2>Emulation</h2>
+    <button onclick="proxy('https://www.win11-react.cf');">Windows11</button>
+    <button onclick="proxy('https://now.gg/play/uncube/7074/now');">Andriod</button>
+    <button onclick="proxy('https://appetize.io/embed/8bnmakzrptf1hv9dq7v7bnteem?autoplay=false&debug=true&device=iphone15pro&deviceColor=white&embed=true&orientation=portrait&params=%7B%22EXDevMenuDisableAutoLaunch%22:true,%22EXKernelLaunchUrlDefaultsKey%22:%22exp://exp.host/@snack/sdk.48.0.0-dRi52quhTT%22,%22EXKernelDisableNuxDefaultsKey%22:true%7D&scale=72&screenOnly=false&xDocMsg=true&xdocMsg=true');">IOS</button>
+  
+</body>
+</html>
+
+<!--Scripts-->
+<script>
+async function registerSW() {    
+  const workerURL = "./sw.js";
+  const worker = await navigator.serviceWorker.getRegistration(workerURL, {
+    scope: __uv$config.prefix,
+  });
+  return navigator.serviceWorker.register(workerURL, { scope: __uv$config.prefix });
+}
+function proxy(url) {
+  registerSW().then(worker => {   
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+}
+function goNowgg() {
+  var url = document.getElementById("url").value;  
+  var regex = /^https:\/\/now\.gg\/play\/([^/]+)\/(\d+)\/([^/]+)$/;
+  if (regex.test(url)) {
+    proxy(url);
+  } else {
+    alert("Please enter a valid Now.gg URL and try again (Use https:// at the start of your URL)!");
+  }
+}
+</script>
+<!--Ultraviolet Scripts-->
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
