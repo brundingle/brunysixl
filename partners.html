@@ -1,0 +1,60 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@800&display=swap');
+  font-family: 'Lexend', sans-serif;
+</style>
+<html>
+<head>
+  <img src="Screenshot 2024-01-27 105444.png" alt="brunysixl logo">
+  <link href='nggstyle.css' rel='stylesheet'>
+</head>
+<body>
+  <body style="background-color:black;">
+  <h2>    brunysixl. redifining the unblocked games network</h2>
+  <form onsubmit="goNowgg()">
+    <input class="input" placeholder="Enter A Custom Now.gg Url Here!" id="url">
+  </form>
+  <div>
+      <h2>Our Awesome Partners</h2>
+    <button onclick="window.open('https://sites.google.com/view/game-hub-unbl0cked');">gamehub</button>
+   <button onclick="window.open('https://sites.google.com/view/pizzaedition');">pizza edition</button>
+    <button onclick="window.open('https://sites.google.com/view/funnyguylol/mochi');">Mochi</button>
+   <button onclick="window.open('https://sites.google.com/view/2463fifi');">fifis math</button>
+   <button onclick="window.open('https://sites.google.com/view/60glasses');">60% Glasses</button>
+    <button onclick="window.open('https://sites.google.com/view/jimmysgamingsite');">CLEVER JIMMYS GAMES</button>
+   <button onclick="window.open('https://sites.google.com/view/uris-unblocked-juegos/home');">Uris Unblockedd Juegos</button>
+   <button onclick="window.open('https://sites.google.com/view/v-games-2/homel');">V-Games</button>
+  <button onclick="window.open('https://sites.google.com/view/universal-arcade');">Universal Arcade</button>
+   <button onclick="window.open('https://sites.google.com/view/reds-unblocker/home');">reds unblocked</button>
+<button onclick="window.open('https://sites.google.com/rcsd121.org/ggg/home');">global game garage</button>
+    <button onclick="window.open('https://tootallymath.wixsite.com/mathhelper');">Tottaly Math</button>
+   <button onclick="window.open('https://sites.google.com/view/lludos');">Ludos</button>
+</body>
+</html>
+
+<!--Scripts-->
+<script>
+async function registerSW() {    
+  const workerURL = "./sw.js";
+  const worker = await navigator.serviceWorker.getRegistration(workerURL, {
+    scope: __uv$config.prefix,
+  });
+  return navigator.serviceWorker.register(workerURL, { scope: __uv$config.prefix });
+}
+function proxy(url) {
+  registerSW().then(worker => {   
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+}
+function goNowgg() {
+  var url = document.getElementById("url").value;  
+  var regex = /^https:\/\/now\.gg\/play\/([^/]+)\/(\d+)\/([^/]+)$/;
+  if (regex.test(url)) {
+    proxy(url);
+  } else {
+    alert("Please enter a valid Now.gg URL and try again (Use https:// at the start of your URL)!");
+  }
+}
+</script>
+<!--Ultraviolet Scripts-->
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
