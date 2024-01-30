@@ -1,1 +1,49 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@800&display=swap');
+  font-family: 'Lexend', sans-serif;
+</style>
+<html>
+<head>
+ <p align="center">
+  <img width="300" height="300" src="ezgif-5-7d645de74a.gif">
+</p>
+  <link href='nggstyle.css' rel='stylesheet'>
+</head>
+<body>
+  <body style="background-color:black;">
+  <h2>    brunysixl. redifining the unblocked games network</h2>
+  <div>
+    <hr class="blue">  
+    <h2>Bookmarklets</h2>
+     <button onclick="window.location.href='/chatgpt.html';">ChatGPT</button>
+     <button onclick="window.location.href='/blooket.html';">Blooket</button>
+</body>
+</html>
 
+<!--Scripts-->
+<script>
+async function registerSW() {    
+  const workerURL = "./sw.js";
+  const worker = await navigator.serviceWorker.getRegistration(workerURL, {
+    scope: __uv$config.prefix,
+  });
+  return navigator.serviceWorker.register(workerURL, { scope: __uv$config.prefix });
+}
+function proxy(url) {
+  registerSW().then(worker => {   
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+}
+function goNowgg() {
+  var url = document.getElementById("url").value;  
+  var regex = /^https:\/\/now\.gg\/play\/([^/]+)\/(\d+)\/([^/]+)$/;
+  if (regex.test(url)) {
+    proxy(url);
+  } else {
+    alert("Please enter a valid Now.gg URL and try again (Use https:// at the start of your URL)!");
+  }
+}
+</script>
+<!--Ultraviolet Scripts-->
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
