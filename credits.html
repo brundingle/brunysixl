@@ -1,0 +1,61 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@800&display=swap');
+  font-family: 'Lexend', sans-serif;
+</style>
+
+<html>
+<head
+  <link href='nggstyle.css' rel='stylesheet'>
+</head>
+<body>
+  <body style="background-color:black;">
+  <header>BrunysIXL - Proxys</header>
+  <form onsubmit="goNowgg()">
+  </form>
+  <div>
+     <button onclick="window.location.href='/index.html';">Back To Home Page</button>
+    <hr class="blue">
+    <h2> CREDITS!! </h2>
+    <h2>CREDITS TO a456pur FOR GAME EMBEDS
+
+CREDITS TO SYNRUB33 AND FROGGY FOR NOW.GG RELATED CONTENT
+
+CREDITS TO GOOGLE SITES FOR MAKING THIS POSSIBLE
+
+CREDITS TO INTERSTELLAR FOR OUR CUSTOM UBLOCKER/PROXY
+
+AND CREDITS TO ALL THE DISCORD MEMBERS FOR JOINING OUR SERVER!</h2>
+
+    <h2> SPECIAL CREDITS!!! </h2>
+    <h2> Danybredlessons - Fly High | 60%glasses - Thanks for the support and being a really great friend :)</h2>
+  
+</body>
+</html>
+
+<!--Scripts-->
+<script>
+async function registerSW() {    
+  const workerURL = "./sw.js";
+  const worker = await navigator.serviceWorker.getRegistration(workerURL, {
+    scope: __uv$config.prefix,
+  });
+  return navigator.serviceWorker.register(workerURL, { scope: __uv$config.prefix });
+}
+function proxy(url) {
+  registerSW().then(worker => {   
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+}
+function goNowgg() {
+  var url = document.getElementById("url").value;  
+  var regex = /^https:\/\/now\.gg\/play\/([^/]+)\/(\d+)\/([^/]+)$/;
+  if (regex.test(url)) {
+    proxy(url);
+  } else {
+    alert("Please enter a valid Now.gg URL and try again (Use https:// at the start of your URL)!");
+  }
+}
+</script>
+<!--Ultraviolet Scripts-->
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
