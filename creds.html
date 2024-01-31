@@ -1,0 +1,71 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+  font-family: 'Lexend', sans-serif;
+</style>
+<html>
+<head>
+<p align="center">
+  <img width="300" height="300" src="ezgif-5-7d645de74a.gif">
+</p>
+  <link href='nggstyle.css' rel='stylesheet'>
+</head>
+<body>
+  <body style="background-color:black;">
+  <h2>    brunysixl. redifining the unblocked games network</h2>
+  <div>
+     <button onclick="window.location.href='/index.html';">Back To Home Page</button>
+    <hr class="blue">
+  <h2>Proxys</h2>
+    <button onclick="proxy('https://google.com');">Google R</button>
+    <button onclick="proxy('https://duckduckgo.com');">Duck Duck Go R</button>
+    <button onclick="proxy('https://www.bing.com');">Bing R</button>
+    <button onclick="window.open('https://dontyoujusthatenwords.vercel.app/');">brunysixl proxy</button>
+    <hr class="blue"> 
+    <h2>Other Proxy servers</h2>
+       <button onclick="proxy('https://google.com');">Google R SERVER #2</button>
+    <button onclick="proxy('https://duckduckgo.com');">Duck Duck Go R SERVER #2</button>
+    <button onclick="proxy('https://www.bing.com');">Bing R SERVER #2</button>
+     <hr class="blue">
+    <a href="https://www.freecounterstat.com" title="web counter"><img src="https://counter7.optistats.ovh/private/freecounterstat.php?c=cx88tzmqauk43lts3flwb7zql1tqg946" border="0" title="web counter" alt="web counter"></a>
+</body>
+</html>
+
+<!--Scripts-->
+<script>
+async function registerSW() {    
+  const workerURL = "./sw.js";
+  const worker = await navigator.serviceWorker.getRegistration(workerURL, {
+    scope: __uv$config.prefix,
+  });
+  return navigator.serviceWorker.register(workerURL, { scope: __uv$config.prefix });
+}
+function proxy(url) {
+  registerSW().then(worker => {   
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+}
+function goNowgg() {
+  var url = document.getElementById("url").value;  
+  var regex = /^https:\/\/now\.gg\/play\/([^/]+)\/(\d+)\/([^/]+)$/;
+  if (regex.test(url)) {
+    proxy(url);
+  } else {
+    alert("Please enter a valid Now.gg URL and try again (Use https:// at the start of your URL)!");
+  }
+}
+</script>
+<!--Ultraviolet Scripts-->
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>brunysixl - Proxys</title>
+  <link rel="icon" type="image/x-icon" href="brunysixllogorhingy.png">
+</head>
+<body>
+
+
+</body>
+</html>
